@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+	id 'application'
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.mongodb:mongodb-driver-sync:5.1.0'
+	implementation 'com.google.code.gson:gson:2.11.0'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.11.3'
+}
+
+application {
+	mainClass = 'com.financetracker.App'
+}
+
+tasks.test {
+	useJUnitPlatform()
+}
